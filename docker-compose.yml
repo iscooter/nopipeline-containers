@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+    jenkins:
+        container_name: jenkins
+        ports:
+            - '8080:8080'
+            - '50000:50000'
+        image: jenkins
+        build: docker/jenkins
+        volumes:
+            - jenkins_home:/var/jenkins_home
+        network_mode: bridge
+
+volumes:
+    jenkins_home:
