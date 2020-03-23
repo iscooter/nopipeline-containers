@@ -26,7 +26,7 @@ update-plugins:
 clean:
 	@echo "******** Deleting jenkins volume, image and container ********"
 	@docker container rm jenkins jenkins-slave && ([ $$? -eq 0 ] && echo "success") || echo "unable to complete"
-	@docker image rm jenkins jenins-slave && ([ $$? -eq 0 ] && echo "success") || echo "unable to complete"
+	@docker image rm jenkins jenkins-slave && ([ $$? -eq 0 ] && echo "success") || echo "unable to complete"
 	@docker volume rm nopipeline-containers_jenkins_home && ([ $$? -eq 0 ] && echo "success") || echo "unable to complete"
 
 test: clean
