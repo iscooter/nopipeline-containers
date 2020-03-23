@@ -12,7 +12,7 @@ This project aims to demonstrate how to execute pipeline-like Jenkins jobs repre
 | python | language | https://docs.python.org/3/ | 
 
 ## Usage
-Following a resemblance of the [3musketeers](https://3musketeers.io/) pattern using Makefile to build and run Jenkins locally.
+Following a resemblance of the [3musketeers](https://3musketeers.io/) pattern Makefile is used to build and run Jenkins locally, but also enable executing from CI tools that integrate with Docker and make.
 ### Start the Jenkins contianers
 ```sh
 make run-jenkins
@@ -29,7 +29,7 @@ Backup /var/jenkins_home and update plugins.txt.
 make stop-jenkins
 ```
 ## Jenkins Pipeline Script
-The JSON noPipeline implements a lightweight Jenkins pipeline script that implements a Jenkins [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/#directory-structure).  The [nopipeline-jsl](https://github.com/iscooter/nopipeline-jsl) interprets the JSON to dynamically execute pipeline-like stages using a JSON structure.
+The JSON noPipeline implements a lightweight Jenkins scripted pipeline that includes a Jenkins [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/#directory-structure).  The [jsonPipeline](https://github.com/iscooter/nopipeline-jsl/blob/master/vars/jsonPipeline.groovy) interprets the JSON to dynamically execute pipeline-like stages.
 ```groovy
 // include the shared library
 jsl = library(
@@ -48,6 +48,7 @@ wrapper(
 )
 ```
 ## JSON Pipeline Structure
+The functional container integration is coming soon.
 The [hello-world.json](https://github.com/iscooter/nopipeline-json/blob/master/resources/nopipelines/hello-world.json) is available to the pipeline as a resource in one of the Jenkins [shared libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/#directory-structure).
 ```json
 {
@@ -69,3 +70,5 @@ The [hello-world.json](https://github.com/iscooter/nopipeline-json/blob/master/r
 
 ## Resources
  - [Markdown UI](https://dillinger.io/)
+ - https://gist.github.com/vidaaudrey/14b121a491d889af019e
+ - https://gitter.im/jenkinsci/docker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
