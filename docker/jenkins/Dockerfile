@@ -7,6 +7,7 @@ ENV JENKINS_USER admin
 ENV JENKINS_PASS admin
 
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+ENV JENKINS_JAVA_OPTIONS="-Duser.timezone=America/New_York"
 
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/default-user.groovy
