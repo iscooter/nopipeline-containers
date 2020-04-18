@@ -1,4 +1,4 @@
-# Jenkins JSON Pipeline
+# Jenkins JSON Pipeline [![Build Status](https://travis-ci.com/iscooter/nopipeline-containers.svg?branch=master)](https://travis-ci.com/iscooter/nopipeline-containers)
 This project aims to demonstrate how to execute pipeline-like Jenkins jobs represented in a JSON structure.
 #### Technology Stack
 | Item           | Type | Product Referece   | Project Ref
