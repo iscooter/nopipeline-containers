@@ -1,13 +1,14 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Install Docker CLI
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
+RUN apt-get update && apt-get install -y apt-transport-https ca-certificates gnupg
 RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 7EA0A9C3F273FCD8
 RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
 
 RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git
-RUN easy_install jenkins-webapi
+RUN python -m pip install jenkins-webapi
 
 # Get docker-compose in the agent container
 
@@ -17,6 +18,7 @@ RUN mkdir -p /var/lib/jenkins
 
 # Ellucian
 # added to support additional functionality from the pipeline
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y wget awscli jq
 # end Ellucian
 
