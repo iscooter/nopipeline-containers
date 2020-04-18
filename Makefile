@@ -1,3 +1,7 @@
+build:
+	@echo "******** Building Jenkins in Travis CI ********"
+	@docker-compose build
+
 build-jenkins: clean
 	@echo "******** Building Jenkins ********"
 	@docker-compose build
