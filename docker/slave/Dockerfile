@@ -2,7 +2,12 @@ FROM ubuntu:18.04
 
 # Install Docker CLI
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates gnupg2
-RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+# RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN ; do \
+    gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "58118E89F3A912897C070ADBF76221572C52609D" || \
+    gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "58118E89F3A912897C070ADBF76221572C52609D" || \
+    gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "58118E89F3A912897C070ADBF76221572C52609D" ; \
+  done
 # RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 7EA0A9C3F273FCD8
 RUN ; do \
     gpg --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "7EA0A9C3F273FCD8" || \
