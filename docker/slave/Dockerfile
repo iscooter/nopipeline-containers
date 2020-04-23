@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 # Install Docker CLI
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates gnupg2
 ADD get-keys.sh /tmp/get-keys.sh
-RUN chmod +s /tmp/get-keys.sh
+RUN chmod +x /tmp/get-keys.sh
 RUN /tmp/get-keys.sh
 RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
